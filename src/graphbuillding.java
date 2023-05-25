@@ -11,7 +11,7 @@ public class graphbuillding {
             this.wt = wt;
             this.e = dest;
 
-        }
+            }
     }
         public void addedge(ArrayList<E> graph[])
         {

@@ -12,7 +12,7 @@ public class BFS {
         vis[0]=true;
         while(!q.isEmpty())
         {
-            Integer Node =q.poll();
+            Integer Node =q.peek();
             System.out.println(Node);
         }
     }
