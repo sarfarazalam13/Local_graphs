@@ -46,6 +46,41 @@ public class connectedcomponents {
         }
     }
 
+    void bfs(ArrayList<nody> gra[])
+    {
+        boolean[]  isVisited=new boolean[gra.length];
+        for(int i=0;i<gra.length;i++)
+        {
+            if(!isVisited[i])
+            {
+                bfsutil(gra,isVisited);
+            }
+        }
+    }
+    void bfsutil(ArrayList<nody> gra[],boolean isVisited[])
+    {
+        Queue<Integer> q=new LinkedList<>();
+        q.add(0);
+        while(!q.isEmpty())
+        {
+            int curr=q.remove();
+            if(!isVisited[curr])
+            {
+                System.out.print(curr);
+                isVisited[curr]=true;
+                for(int i=0;i< gra[curr].size();i++)
+                {
+                    nody e=gra[curr].get(i);
+                    q.add(e.dest);
+                }
+
+            }
+
+
+        }
+
+    }
+
 
 
 }

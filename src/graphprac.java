@@ -11,6 +11,7 @@ public class graphprac {
     }
 
     void create(ArrayList<no> gra[]) {
+
         for (int i = 0; i < gra.length; i++)
         {
             gra[i] = new ArrayList<>();
