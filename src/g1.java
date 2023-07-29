@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class g1 {
@@ -8,7 +10,7 @@ public class g1 {
 
         node1(int src, int dest) {
             this.src = src;
-            this.dest -= dest;
+            this.dest = dest;
 
         }
     }
@@ -18,6 +20,7 @@ public class g1 {
             {
                 gra[i]=new ArrayList<>();
             }
+            /*
             Scanner in=new Scanner(System.in);
             int i=0;
             while(i<gra.length)
@@ -31,7 +34,41 @@ public class g1 {
                 {
                     i++;
                 }
-            }
+            }*/
+            gra[0].add(new node1(0,2));
+
+            gra[1].add(new node1(1,2));
+            gra[1].add(new node1(1,3));
+
+            gra[2].add(new node1(2,1));
+            gra[2].add(new node1(2,3));
+
+            gra[3].add(new node1(3,1));
+            gra[3].add(new node1(3,2));
+
+
+        }
+
+        void bfs(ArrayList<node1>gra[])
+        {
+                Queue<Integer>q=new LinkedList<>();
+                boolean vis[]=new boolean[gra.length];
+
+                q.add(0);
+                while(!q.isEmpty())
+                {
+                    int curr=q.remove();
+                    if(!vis[curr])
+                    {
+                        System.out.println(curr);
+                        vis[curr]=true;
+                        for(int i=0;i<gra[curr].size();i++)
+                        {
+                            node1 c=gra[curr].get(i);
+                            q.add(c.dest);
+                        }
+                    }
+                }
 
 
         }
@@ -42,7 +79,7 @@ public class g1 {
                 for(int j=0;j<gra[i].size();j++)
                 {
                     node1 temp=gra[i].get(j);
-                    System.out.print(temp.src +"==>"+temp.dest);
+                    System.out.print(temp.src +"==>"+temp.dest+" , ");
 
                 }
                 System.out.println();
@@ -58,7 +95,9 @@ class m
         g1 t=new g1();
         ArrayList<g1.node1> gra[]=new ArrayList[5];
         t.add(gra);
+
         t.printgra(gra);
+        t.bfs(gra);
 
     }
 }
