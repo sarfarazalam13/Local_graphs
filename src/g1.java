@@ -72,6 +72,19 @@ public class g1 {
 
 
         }
+        void dfs(ArrayList<node1>gra[],int curr,boolean vis[] )
+        {
+            System.out.print(curr);
+            vis[curr]=true;
+            for(int i=0;i<gra[curr].size();i++)
+            {
+                node1 t=gra[curr].get(i);
+                if(!vis[t.dest])
+                {
+                    dfs(gra,t.dest, vis);
+                }
+            }
+        }
        void printgra(ArrayList<node1> gra[])
         {
             for(int i=0;i<gra.length;i++)
@@ -98,6 +111,8 @@ class m
 
         t.printgra(gra);
         t.bfs(gra);
+        boolean vis[]=new boolean [gra.length];
+        t.dfs(gra,0,vis);
 
     }
 }
