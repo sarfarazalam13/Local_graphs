@@ -49,6 +49,7 @@ public class g1 {
 
         }
 
+
         void bfs(ArrayList<node1>gra[])
         {
                 Queue<Integer>q=new LinkedList<>();
