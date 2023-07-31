@@ -46,16 +46,26 @@ public class g1 {
             gra[3].add(new node1(3,1));
             gra[3].add(new node1(3,2));
 
+            gra[4].add(new node1(4,5));
 
         }
 
 
-        void bfs(ArrayList<node1>gra[])
+        public void bfs(ArrayList<node1>gra[])
+        {
+            boolean vis[]=new boolean[gra.length];
+            for(int i=0;i<gra.length;i++)
+            {
+                if(!vis[i])
+                {
+                    bfsutil(gra,i,vis);
+                }
+            }
+        }
+        void bfsutil(ArrayList<node1>gra[],int v,boolean vis[])
         {
                 Queue<Integer>q=new LinkedList<>();
-                boolean vis[]=new boolean[gra.length];
-
-                q.add(0);
+                q.add(v);
                 while(!q.isEmpty())
                 {
                     int curr=q.remove();
@@ -107,13 +117,13 @@ class m
     public static void main(String args[])
     {
         g1 t=new g1();
-        ArrayList<g1.node1> gra[]=new ArrayList[5];
+        ArrayList<g1.node1> gra[]=new ArrayList[6];
         t.add(gra);
 
         t.printgra(gra);
         t.bfs(gra);
         boolean vis[]=new boolean [gra.length];
-        t.dfs(gra,0,vis);
+       // t.dfs(gra,0,vis);
 
     }
 }
