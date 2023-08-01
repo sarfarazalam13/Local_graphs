@@ -21,6 +21,9 @@ public class g1 {
                 gra[i]=new ArrayList<>();
             }
             /*
+            src to dest
+            and dest to src
+
             Scanner in=new Scanner(System.in);
             int i=0;
             while(i<gra.length)
@@ -35,6 +38,8 @@ public class g1 {
                     i++;
                 }
             }*/
+
+
             gra[0].add(new node1(0,2));
 
             gra[1].add(new node1(1,2));
