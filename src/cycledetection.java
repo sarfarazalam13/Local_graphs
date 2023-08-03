@@ -25,6 +25,7 @@ public class cycledetection {
         1       |                    4
           \     |
             \   |
+
                 2
 
        */
