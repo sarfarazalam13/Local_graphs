@@ -49,8 +49,24 @@ void dij(ArrayList<edge>gra[],int src)
      if(!vis[curr.n])
      {
          vis[curr.n]=true;
+         for(int i=0;i<gra[curr.n].size();i++)
+         {
+             edge e=gra[curr.n].get(i);
+             int u=e.src;
+             int v=e.dest;
+             int w=e.wt;
+             if(dist[u]+w<dist[v])
+             {
+                 dist[v]=dist[u]+w;
+                 pq.add(new pair(v,dist[v]));
+             }
+         }
 
      }
+    }
+    for(int i:dist)
+    {
+        System.out.println(i+" ");
     }
 }
     void add(ArrayList<edge>gra[])
@@ -115,6 +131,7 @@ class maaa
         dijkastras d=new dijkastras();
         ArrayList<dijkastras.edge>gra[]=new ArrayList[6];
         d.add(gra);
-        d.printlgra(gra);
+        //d.printlgra(gra);
+        d.dij(gra,0);
     }
 }
