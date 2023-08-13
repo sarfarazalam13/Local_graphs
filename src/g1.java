@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class g1 {
     class node1 {
@@ -126,6 +123,34 @@ public class g1 {
                 System.out.println();
             }
         }
+        void toposort(ArrayList<node1>gra[])
+        {
+            Stack<Integer> stk=new Stack<>();
+            boolean vis[]=new boolean[gra.length];
+            for(int i=0;i<gra.length;i++)
+            {
+                if(!vis[i])
+                toposortutil(gra,vis,i,stk);
+            }
+            while(!stk.isEmpty())
+            {
+                System.out.print(stk.pop()+" ");
+            }
+        }
+        void toposortutil(ArrayList<node1>gra[],boolean vis[],int curr,Stack<Integer>stk)
+        {
+            vis[curr]=true;
+            for(int i=0;i<gra[curr].size();i++)
+            {
+                node1 e=gra[curr].get(i);
+                if(!vis[e.dest])
+                {
+                    toposortutil(gra,vis, e.dest,stk);
+                }
+            }
+            stk.push(curr);
+        }
+
     }
 
 
@@ -142,6 +167,9 @@ class m
         boolean vis[]=new boolean [gra.length];
         System.out.println("DFS");
        t.dfs(gra,0,vis);
+        System.out.println();
+       System.out.println("toposort");
+       t.toposort(gra);
 
     }
 }
