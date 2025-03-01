@@ -23,7 +23,7 @@ public class graphsArayListAray {
         q.add(start);
         vis[start]=true;
         while(!q.isEmpty())
-        {
+        { 
             int curr=q.poll();
             System.out.print(curr+" ");
             ArrayList<Integer> neighbours=gra.get(curr);
